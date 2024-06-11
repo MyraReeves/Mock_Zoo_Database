@@ -17,9 +17,26 @@ INSERT INTO table_animalia
 SELECT * FROM table_animalia;
 
 
+-- ----------------------------------------
+
 
 CREATE TABLE table_class (
     class_id INT PRIMARY KEY NOT NULL IDENTITY (100, 1),
     class_type VARCHAR(60) NOT NULL
 );
 
+INSERT INTO table_class
+    (class_type)
+    VALUES
+    ('Aves'),
+    ('Amphibia'),
+    ('Reptilia'),
+    ('Mammalia'),
+    ('Insecta'),
+    ('Chondrichthyes'),
+    ('Actinopterygii'),
+    ('Scyphozoa'),
+    ('Asteroidea')
+;
+
+SELECT * FROM table_class;
