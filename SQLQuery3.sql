@@ -21,7 +21,7 @@ SELECT * FROM table_animalia;
 
 
 CREATE TABLE table_class (
-    class_id INT PRIMARY KEY NOT NULL IDENTITY (100, 1),
+    class_id INT PRIMARY KEY NOT NULL IDENTITY (100, 100),
     class_type VARCHAR(60) NOT NULL
 );
 
@@ -40,3 +40,28 @@ INSERT INTO table_class
 ;
 
 SELECT * FROM table_class;
+
+
+-- --------------------------------------
+
+-- To permanently change the jellyfish class value to the sea anemone class value instead:
+UPDATE table_class SET class_type = 'Hexacorallia' WHERE class_type = 'Scyphozoa';
+
+-- Checking that it took effect:
+SELECT * FROM table_class;
+
+-- Changing it back to the way it was.  Back to jellyfish instead of sea anemones:
+UPDATE table_class SET class_type = 'Scyphozoa' WHERE class_type = 'Hexacorallia';
+
+-- --------------------------------------
+
+-- To only TEMPORARILY change a value. For example, to show that Actinopterygii is the class for ray-finned fish species:
+SELECT REPLACE(class_type, 'Actinopterygii', 'Ray-finned fishes') FROM table_class;
+
+-- Looking at the entire table to check that it took effect:
+SELECT * FROM table_class;
+
+
+-- --------------------------------------
+
+
