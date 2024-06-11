@@ -77,3 +77,36 @@ SELECT COUNT(class_type) FROM table_class WHERE class_type = 'Aves';
 -- ---------------------------------------
 
 
+CREATE TABLE table_employees (
+    employee_id INT PRIMARY KEY NOT NULL IDENTITY (10000, 1),
+    First_Name VARCHAR(100) NOT NULL,
+    Last_Name VARCHAR(100) NOT NULL,
+    Contact_Phone VARCHAR(20) NOT NULL
+);
+
+INSERT INTO table_employees
+    (First_Name, Last_Name, Contact_Phone)
+    VALUES
+    ('John', 'Smith', '555-345-5768'),
+    ('Mary', 'White', '555-655-5203'),
+    ('Jenny', 'Tutone', '555-867-5309'),
+    ('Jeremy', 'Pi', '555-314-1592'),
+    ('Constance', 'Euler', '555-577-2156'),
+    ('Golden', 'Ratio', '555-161-8033')
+;
+
+-- To check that the table looks correct:
+SELECT * FROM table_employees;
+
+
+
+-- To show only the names of the first three employees on the list:
+SELECT First_Name, Last_Name FROM table_employees WHERE employee_id BETWEEN 10000 AND 10002;
+
+-- To show all 3 columns of the last two employees on the list:
+SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE employee_id BETWEEN 10004 AND 10005;
+
+-- To show all of the information for any employee whose last name begins with the letters "Eu":
+SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Last_Name LIKE 'Eu%';
+
+
