@@ -64,4 +64,16 @@ SELECT * FROM table_class;
 
 -- --------------------------------------
 
+-- To only show the one bird row from the table:
+SELECT class_type FROM table_class WHERE class_type = 'Aves';
+
+-- To make the class type be displayed in all uppercase letters:
+SELECT UPPER(class_type) FROM table_class WHERE class_type = 'Aves';
+
+-- Count how many rows have the class type of being birds:
+SELECT COUNT(class_type) FROM table_class WHERE class_type = 'Aves';
+
+
+-- ---------------------------------------
+
 
