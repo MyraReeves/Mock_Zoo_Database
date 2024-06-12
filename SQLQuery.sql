@@ -109,4 +109,7 @@ SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Employee_
 -- To show all of the information for any employee whose last name begins with the letters "Eu":
 SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Last_Name LIKE 'Eu%';
 
+-- To show all the information for any employee whose last name has the SECOND letter of "u":
+SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Last_Name LIKE '_u%';
 
+-- -------------------------------------------------------------------------------------------------
