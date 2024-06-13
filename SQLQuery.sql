@@ -112,4 +112,20 @@ SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Last_Name
 -- To show all the information for any employee whose last name has the SECOND letter of "u":
 SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Last_Name LIKE '_u%';
 
+-- -- To show all the information for any employee whose last name ENDS in the letter "e":
+SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE Last_Name LIKE '_%e';
 -- -------------------------------------------------------------------------------------------------
+
+-- To change the value of the First Name column where the person's first name is John:
+UPDATE table_employees SET First_Name = 'Matt' WHERE First_Name = 'John';
+
+-- Check that the change took place:
+SELECT * FROM table_employees;
+
+-- Show all the information for any employee whose first name begins with M, and the last names are in alphabetical order (default):
+SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE First_Name LIKE 'm%' ORDER BY Last_Name;
+
+-- Or the M names in descending alphabetical order of last names:
+SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE First_Name LIKE 'm%' ORDER BY Last_Name DESC;
+
+-- ------------------------------------------------------------------------------------------------
