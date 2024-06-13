@@ -142,3 +142,7 @@ DELETE FROM table_employees WHERE Last_Name = 'White';
 SELECT * FROM table_employees ORDER BY Last_Name;
 
 -- ----------------------------------------------------------------------------------
+
+--  **WARNING!** To delete ENTIRE table!!!! **WARNING!**
+DROP TABLE table_employees;
+--  **WARNING!**   **WARNING!**  **WARNING!**  **WARNING!**
