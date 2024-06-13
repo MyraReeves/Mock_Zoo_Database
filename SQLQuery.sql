@@ -76,15 +76,21 @@ SELECT COUNT(Class_type) FROM table_class WHERE Class_type = 'Aves';
 
 -- --------------------------------------------
 
--- Create a table for an animal's Order within its taxonomy
-CREATE TABLE table_Order (
-	Order_id INT PRIMARY KEY NOT NULL IDENTITY (10, 10),
-	Order_type VARCHAR(50) NOT NULL
+-- Create a table for the type of diet an animal eats
+CREATE TABLE table_diet_type (
+	diet_id INT PRIMARY KEY NOT NULL IDENTITY (1, 1),
+	diet_type VARCHAR(50) NOT NULL
 );
 
+INSERT INTO table_diet_type
+    (diet_type)
+    VALUES
+    ('Carnivore'),
+    ('Herbivore'),
+    ('Omnivore')
+;
 
-
-SELECT * FROM table_Order;
+SELECT * FROM table_diet_type;
 
 -- --------------------------------------------
 
