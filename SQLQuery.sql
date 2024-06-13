@@ -97,9 +97,9 @@ SELECT * FROM table_diet_type;
 
 
 
-/* --------------------------------------------
+/* ---------------------------------------------
     Create a table for each animal's care needs:
--------------------------------------------- */
+--------------------------------------------- */
 
 CREATE TABLE animal_care (
 	care_id VARCHAR(50) PRIMARY KEY NOT NULL,
@@ -132,9 +132,9 @@ SELECT * FROM animal_care;
 
 
 
-/* --------------------------------------------
+/* ----------------------------------------------------
      Create a table for each animal's nutritional needs
--------------------------------------------- */
+---------------------------------------------------- */
 
 CREATE TABLE animal_diet (
 	nutrition_id INT PRIMARY KEY NOT NULL IDENTITY (100, 1),
@@ -175,9 +175,13 @@ INSERT INTO animal_diet
 
 SELECT * FROM animal_diet;
 
--- --------------------------------------------
 
--- Create a table for each animal's habitat:
+
+
+/* ------------------------------------------
+	Create a table for each animal's habitat:
+------------------------------------------ */
+
 CREATE TABLE habitat (
 	habitat_id INT PRIMARY KEY NOT NULL IDENTITY (55550, 1),
 	habitat_type VARCHAR(50) NOT NULL,
@@ -222,16 +226,33 @@ INSERT INTO habitat
 
 SELECT * FROM habitat;
 
--- --------------------------------------------
 
--- Create a table of zookeepers for each type of animal:
-CREATE TABLE zookeepers (
+
+
+/* -----------------------------------------------------
+	Create a table for the curators of each animal area:
+----------------------------------------------------- */
+
+CREATE TABLE animal_curators (
 	employee_id INT PRIMARY KEY NOT NULL IDENTITY (202400000,1),
-	keeper_FirstName VARCHAR(100) NOT NULL,
-	keeper_LastName VARCHAR(100) NOT NULL,
-	keeper_Contact VARCHAR(20) NOT NULL
+	FirstName VARCHAR(100) NOT NULL,
+	LastName VARCHAR(100) NOT NULL,
+	Contact VARCHAR(20) NOT NULL
 );
 
+INSERT INTO animal_curators
+	(FirstName, LastName, Contact)
+	VALUES
+	('Margaret', 'Nguyen', '555-576-2899'),
+	('Mary', 'Fischer', '555-784-4856'),
+	('Arnold', 'Budnich', '555-475-3944'),
+	('Denise', 'LaBonia', '555-891-5853'),
+	('Kimberly', 'Rose', '555-485-4855'),
+	('Damien', 'Ferrerro', '555-288-3749')
+;
 
-SELECT * FROM zookeepers;
+SELECT * FROM animal_curators;
+
+
+
 -- --------------------------------------------
