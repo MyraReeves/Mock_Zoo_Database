@@ -129,12 +129,42 @@ SELECT * FROM animal_care;
 
 -- Create a table for each animal's nutritional needs
 CREATE TABLE animal_diet (
-	nutrition_id INT PRIMARY KEY NOT NULL IDENTITY (1000, 1000),
-	nutrition_type VARCHAR(50) NOT NULL,
-	delivery_cost MONEY NOT NULL
+	nutrition_id INT PRIMARY KEY NOT NULL IDENTITY (100, 1),
+	nutrition_type VARCHAR(100) NOT NULL,
+	cost MONEY NOT NULL
 );
 
 
+INSERT INTO animal_diet
+	(nutrition_type, cost)
+	VALUES
+	('flash frozen fish & squid', 1500),
+	('frozen shrimp', 700),
+	('frozen rodents', 1600),
+	('day old chicken/turkey chicks', 500),
+	('live rodents and chickens', 600),
+	('milk', 600),
+	('seed mix', 300),
+	('live crickets', 200),
+	('mealworms', 200),
+	('bread', 100),
+	('produce', 5000),
+	('ground corn', 300),
+	('alfalfa hay', 300),
+	('fish pellets', 100),
+	('exotic feline diet', 2000),
+	('frozen canid diet', 2000),
+	('frozen mustelid diet', 2000),
+	('omnivore biscuits', 2000),
+	('herbivore biscuits', 1000),
+	('primate biscuits', 2000),
+	('monkey biscuits', 1000),
+	('dry dog food', 500),
+	('canned dog food', 100),
+	('hard-boiled egg', 200),
+	('bones & marrow', 400),
+	('daily vitamins/medication', 5000) 
+;
 
 SELECT * FROM animal_diet;
 
