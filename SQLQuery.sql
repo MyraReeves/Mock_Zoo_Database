@@ -74,9 +74,12 @@ SELECT UPPER(Class_type) FROM table_class WHERE Class_type = 'Aves';
 SELECT COUNT(Class_type) FROM table_class WHERE Class_type = 'Aves';
 
 
--- --------------------------------------------
 
--- Create a table for the type of diet an animal eats
+
+/* --------------------------------------------
+    Create a table for the type of diet an animal eats
+-------------------------------------------- */
+
 CREATE TABLE table_diet_type (
 	diet_id INT PRIMARY KEY NOT NULL IDENTITY (1, 1),
 	diet_type VARCHAR(50) NOT NULL
@@ -92,16 +95,17 @@ INSERT INTO table_diet_type
 
 SELECT * FROM table_diet_type;
 
--- --------------------------------------------
 
--- Create a table for each animal's care needs:
--- Create a table for each animal's care needs:
+
+/* --------------------------------------------
+    Create a table for each animal's care needs:
+-------------------------------------------- */
+
 CREATE TABLE animal_care (
 	care_id VARCHAR(50) PRIMARY KEY NOT NULL,
 	care_type VARCHAR(150) NOT NULL,
 	supervisor_id INT NOT NULL
 );
-
 
 INSERT INTO animal_care
 	(care_id, care_type, supervisor_id)
@@ -125,15 +129,18 @@ INSERT INTO animal_care
 
 SELECT * FROM animal_care;
 
--- --------------------------------------------
 
--- Create a table for each animal's nutritional needs
+
+
+/* --------------------------------------------
+     Create a table for each animal's nutritional needs
+-------------------------------------------- */
+
 CREATE TABLE animal_diet (
 	nutrition_id INT PRIMARY KEY NOT NULL IDENTITY (100, 1),
 	nutrition_type VARCHAR(100) NOT NULL,
 	cost MONEY NOT NULL
 );
-
 
 INSERT INTO animal_diet
 	(nutrition_type, cost)
@@ -177,8 +184,43 @@ CREATE TABLE habitat (
 	maintenance_cost MONEY NOT NULL
 );
 
+INSERT INTO habitat
+	(habitat_type, maintenance_cost)
+	VALUES
+	('primate exhibits', 4000),
+	('brown bear exhibit', 4000),
+	('African savannah', 5000),
+	('gray wolf exhibit', 2000),
+	('otter exhibit', 10000),
+	('coyote exhibit', 2000),
+	('kangaroo habitat', 50000),
+	('sloth habitat', 200),
+	('aquariums', 500000),
+    ('touch pools', 100000),
+	('walk-thru aviaries', 10000),
+	('bird of prey exhibits', 1000),
+	('bat habitat', 200),
+	('komodo dragon habitats', 300),
+	('tortoise habitat', 200),
+	('python habitat', 1000),
+	('meerkat exhibit', 2000),
+	('hippo pool', 100000),
+	('rhino exhibit', 100000),
+	('tapir exhibit', 300),
+	('warthog exhibit', 200),
+	('lion exhibit', 4000),
+	('giraffe barn', 100000),
+	('camel exhibit', 200),
+	('elk exhibit', 200),
+	('spider monkey exhibit', 6000),
+	('tiger exhibit', 4000),
+	('lemurs', 100),
+	('insect house', 500),
+	('butterfly greenhouse', 2000),
+	('petting zoo', 1000)
+;
 
-SELECT * FROM animal_diet;
+SELECT * FROM habitat;
 
 -- --------------------------------------------
 
