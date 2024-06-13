@@ -95,12 +95,33 @@ SELECT * FROM table_diet_type;
 -- --------------------------------------------
 
 -- Create a table for each animal's care needs:
+-- Create a table for each animal's care needs:
 CREATE TABLE animal_care (
 	care_id VARCHAR(50) PRIMARY KEY NOT NULL,
-	care_type VARCHAR(50) NOT NULL,
+	care_type VARCHAR(150) NOT NULL,
 	supervisor_id INT NOT NULL
 );
 
+
+INSERT INTO animal_care
+	(care_id, care_type, supervisor_id)
+	VALUES
+	('care_001', 'replace aquarium filter', 1),
+	('care_002', 'drain and refill aquarium', 1),
+	('care_003', 'test water pH, ammonia, phosphate, nitrite, nitrate', 1),
+	('care_004', 'bottle feed', 4),
+	('care_005', 'enrichment device maintenance', 4),
+	('care_006', 'clean habitat', 4),
+	('care_007', 'positive reinforcement training', 4),
+	('care_008', 'dental work', 3),
+	('care_009', 'injections', 3),
+	('care_010', 'train voluntary medical behaviors', 3),
+	('care_011', 'daily weigh', 2),
+	('care_012', 'monthly checkup', 4),
+	('care_013', 'move to new enclosure', 5),
+	('care_014', 'surgery', 3),
+	('care_015', 'handle for public education', 5)
+;
 
 SELECT * FROM animal_care;
 
