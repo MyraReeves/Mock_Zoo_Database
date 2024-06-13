@@ -128,9 +128,17 @@ SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE First_Nam
 -- Or the M names in descending alphabetical order of last names:
 SELECT First_Name, Last_Name, Contact_Phone FROM table_employees WHERE First_Name LIKE 'm%' ORDER BY Last_Name DESC;
 
--- ------------------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------
 
 -- Set up aliases to appear for the column names when showing the information, and order alphabetically by last name:
 SELECT First_Name AS 'First name', Last_Name AS 'Last name', Contact_Phone AS 'Phone #' FROM table_employees ORDER BY Last_Name;
+
+-- ----------------------------------------------------------------------------------
+
+-- To delete a row from the table:
+DELETE FROM table_employees WHERE Last_Name = 'White';
+
+-- Check that the change took place:
+SELECT * FROM table_employees ORDER BY Last_Name;
 
 -- ----------------------------------------------------------------------------------
