@@ -245,7 +245,7 @@ INSERT INTO animal_curators
 	VALUES
 	('Margaret', 'Nguyen', '555-576-2899'),
 	('Mary', 'Fischer', '555-784-4856'),
-	('Arnold', 'Budnich', '555-475-3944'),
+	('Arnold', 'Budinich', '555-475-3944'),
 	('Denise', 'LaBonia', '555-891-5853'),
 	('Kimberly', 'Rose', '555-485-4855'),
 	('Damien', 'Ferrerro', '555-288-3749')
@@ -255,4 +255,17 @@ SELECT * FROM animal_curators;
 
 
 
--- --------------------------------------------
+/* -------------------------------------------------------------------------
+	Create a table for each individual animal, refencing the earlier tables:
+------------------------------------------------------------------------- */
+
+CREATE TABLE animal_collection (
+	id# VARCHAR(50) PRIMARY KEY NOT NULL,
+	animal VARCHAR(50) NOT NULL,
+	animalia_id INT NOT NULL CONSTRAINT fk_animalia_id FOREIGN KEY REFERENCES table_animalia (animalia_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	taxonomy_class INT NOT NULL CONSTRAINT fk_class_id FOREIGN KEY REFERENCES table_class (class_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	diet_type INT NOT NULL CONSTRAINT fk_diet_id FOREIGN KEY REFERENCES table_diet_type (diet_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	habitat INT NOT NULL CONSTRAINT fk_habitat_id FOREIGN KEY REFERENCES habitat (habitat_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	commissary_id INT NOT NULL CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	care_needed VARCHAR(50) NOT NULL CONSTRAINT fk_care_id FOREIGN KEY REFERENCES animal_care (care_id) ON UPDATE CASCADE ON DELETE CASCADE
+);
