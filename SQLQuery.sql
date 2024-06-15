@@ -229,6 +229,13 @@ INSERT INTO habitat
 SELECT * FROM habitat;
 
 
+/* -------------------------------------------------
+	Insert a tropical forest building into the list:
+------------------------------------------------- */
+INSERT INTO habitat (habitat_type, maintenance_cost)
+VALUES ('tropical forest building', 100000);
+
+
 
 
 /* -----------------------------------------------------
