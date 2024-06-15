@@ -285,7 +285,7 @@ CREATE TABLE animal_collection (
 INSERT INTO animal_collection
 	(id#, animal, sex, phylum, taxonomy_class, habitat, diet_type, commissary_id, additional_commissary, seasonal_diet_supplement, care_needed)
 	VALUES
-	('Arctos20220925', 'brown bear - Hope', 'F', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
+	('Arctos20220925', 'brown bear - Hope', 'F', 2, 400, 51, 3, 117, 110, 109, 'care_010'),
 	('Arctos20220926', 'brown bear - Dexter', 'M', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
 	('PaOnca20210609', 'jaguar - Pantanal', 'F', 2, 400, 82, 1, 114, 124, 102, 'care_006'),
 
