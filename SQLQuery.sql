@@ -264,6 +264,7 @@ SELECT * FROM animal_curators;
 CREATE TABLE animal_collection (
 	id# VARCHAR(50) PRIMARY KEY NOT NULL,
 	animal VARCHAR(50) NOT NULL,
+	sex VARCHAR(1) NOT NULL,
 	phylum INT NOT NULL CONSTRAINT fk_animalia_id FOREIGN KEY REFERENCES table_animalia (animalia_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	taxonomy_class INT NOT NULL CONSTRAINT fk_class_id FOREIGN KEY REFERENCES table_class (class_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	habitat INT NOT NULL CONSTRAINT fk_habitat_id FOREIGN KEY REFERENCES habitat (habitat_id) ON UPDATE CASCADE ON DELETE CASCADE,
@@ -275,13 +276,13 @@ CREATE TABLE animal_collection (
 );
 
 INSERT INTO animal_collection
-	(id#, animal, phylum, taxonomy_class, habitat, diet_type, commissary_id, additional_commissary, seasonal_diet_supplement, care_needed)
+	(id#, animal, sex, phylum, taxonomy_class, habitat, diet_type, commissary_id, additional_commissary, seasonal_diet_supplement, care_needed)
 	VALUES
-	('Arctos20220925', 'brown bear - F - Hope', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
-	('Arctos20220926', 'brown bear - M - Dexter', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
-	('PaOnca20210609', 'jaguar - F - Pantanal', 2, 400, ?, 1, 114, 124, 102, 'care_006'),
+	('Arctos20220925', 'brown bear - Hope', 'F', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
+	('Arctos20220926', 'brown bear - Dexter', 'M', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
+	('PaOnca20210609', 'jaguar - Pantanal', 'F', 2, 400, ?, 1, 114, 124, 102, 'care_006'),
 
-	('PanLeo20200214', 'lion - M - Bruno', 2, 400, 71, 1, 114, 124, 102, 'care_006')	
+	('PanLeo20200214', 'lion - Bruno', 'M', 2, 400, 71, 1, 114, 124, 102, 'care_006')	
 ;
 
 SELECT * FROM animal_collection;
