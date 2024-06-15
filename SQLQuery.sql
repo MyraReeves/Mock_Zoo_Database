@@ -320,5 +320,24 @@ SELECT
 	INNER JOIN animal_diet z6 ON z6.nutrition_id = animals.additional_commissary
 	INNER JOIN animal_diet z7 ON z7.nutrition_id = animals.seasonal_diet_supplement
 	INNER JOIN animal_care AS z8 ON z8.care_id = animals.care_needed
-	WHERE animal = 'brown bear - Dexter'
+	WHERE animal = 'brown bear - Dexter'    -- Modify this line to be whichever desired individual
+;
+
+
+/* --------------------------------------------------------------------
+	Displaying cost of habitats & diets for keeping a specific species:
+-------------------------------------------------------------------- */
+SELECT
+	animals.animal AS 'species', 
+	a1.habitat_type, a1.maintenance_cost,
+	a2.nutrition_type, a2.cost,
+	a3.nutrition_type, a3.cost,
+	a4.nutrition_type AS 'OPTIONAL seasonal supplement', a4.cost AS 'cost of optional supplement'
+
+	FROM animal_collection AS animals
+	INNER JOIN habitat AS a1 ON a1.habitat_id = animals.habitat
+	INNER JOIN animal_diet AS a2 ON a2.nutrition_id = animals.diet_type
+	INNER JOIN animal_diet AS a3 ON a3.nutrition_id = animals.additional_commissary
+	INNER JOIN animal_diet AS a4 ON a4.nutrition_id = animals.seasonal_diet_supplement
+	WHERE animal = 'jaguar - Pantanal' -- Modify this line to view the cost of a different species
 ;
