@@ -262,11 +262,24 @@ SELECT * FROM animal_curators;
 CREATE TABLE animal_collection (
 	id# VARCHAR(50) PRIMARY KEY NOT NULL,
 	animal VARCHAR(50) NOT NULL,
-	animalia_id INT NOT NULL CONSTRAINT fk_animalia_id FOREIGN KEY REFERENCES table_animalia (animalia_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	phylum INT NOT NULL CONSTRAINT fk_animalia_id FOREIGN KEY REFERENCES table_animalia (animalia_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	taxonomy_class INT NOT NULL CONSTRAINT fk_class_id FOREIGN KEY REFERENCES table_class (class_id) ON UPDATE CASCADE ON DELETE CASCADE,
-	diet_type INT NOT NULL CONSTRAINT fk_diet_id FOREIGN KEY REFERENCES table_diet_type (diet_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	habitat INT NOT NULL CONSTRAINT fk_habitat_id FOREIGN KEY REFERENCES habitat (habitat_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	diet_type INT NOT NULL CONSTRAINT fk_diet_id FOREIGN KEY REFERENCES table_diet_type (diet_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	commissary_id INT NOT NULL CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
-	additional_commissary_OPTIONAL INT CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	additional_commissary INT CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	seasonal_diet_supplement INT CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	care_needed VARCHAR(50) NOT NULL CONSTRAINT fk_care_id FOREIGN KEY REFERENCES animal_care (care_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+INSERT INTO animal_collection
+	(id#, animal, phylum, taxonomy_class, habitat, diet_type, commissary_id, additional_commissary, seasonal_diet_supplement, care_needed)
+	VALUES
+	('Arctos20220925', 'brown bear - F - Hope', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
+	('Arctos20220926', 'brown bear - M - Dexter', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
+	('PaOnca20210609', 'jaguar - F - Pantanal', 2, 400, ?, 1, 114, 124, 102, 'care_006'),
+
+	('PanLeo20200214', 'lion - M - Bruno', 2, 400, 71, 1, 114, 124, 102, 'care_006')	
+;
+
+SELECT * FROM animal_collection;
