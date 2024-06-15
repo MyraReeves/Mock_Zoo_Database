@@ -277,8 +277,8 @@ CREATE TABLE animal_collection (
 	habitat INT NOT NULL CONSTRAINT fk_habitat_id FOREIGN KEY REFERENCES habitat (habitat_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	diet_type INT NOT NULL CONSTRAINT fk_diet_id FOREIGN KEY REFERENCES table_diet_type (diet_id) ON UPDATE CASCADE ON DELETE CASCADE,
 	commissary_id INT NOT NULL CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
-	additional_commissary INT CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
-	seasonal_diet_supplement INT CONSTRAINT fk_nutrition_id FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE CASCADE ON DELETE CASCADE,
+	additional_commissary INT CONSTRAINT fk_nutrition_id_additional FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+	seasonal_diet_supplement INT CONSTRAINT fk_nutrition_id_seasonal FOREIGN KEY REFERENCES animal_diet (nutrition_id) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	care_needed VARCHAR(50) NOT NULL CONSTRAINT fk_care_id FOREIGN KEY REFERENCES animal_care (care_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
@@ -287,7 +287,7 @@ INSERT INTO animal_collection
 	VALUES
 	('Arctos20220925', 'brown bear - Hope', 'F', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
 	('Arctos20220926', 'brown bear - Dexter', 'M', 2, 400, 51, 3, 117, 110, 100, 'care_010'),
-	('PaOnca20210609', 'jaguar - Pantanal', 'F', 2, 400, ?, 1, 114, 124, 102, 'care_006'),
+	('PaOnca20210609', 'jaguar - Pantanal', 'F', 2, 400, 82, 1, 114, 124, 102, 'care_006'),
 
 	('PanLeo20200214', 'lion - Bruno', 'M', 2, 400, 71, 1, 114, 124, 102, 'care_006')	
 ;
