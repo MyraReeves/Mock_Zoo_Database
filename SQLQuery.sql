@@ -3,15 +3,17 @@ CREATE DATABASE database_zoo;
 USE database_zoo;
 
 CREATE TABLE table_animalia (
-    Id# INT PRIMARY KEY NOT NULL IDENTITY (1,1),
-    Animalia_type VARCHAR(50) NOT NULL
+    animalia_id INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+    phylum VARCHAR(50) NOT NULL
 );
 
 INSERT INTO table_animalia
-    (Animalia_type)
+    (phylum)
     VALUES
-    ('Vertebrate'),
-    ('Invertebrate')
+    ('Arthropoda'),
+    ('Chordata'),
+	('Cnidaria'),
+	('Echinodermata')
 ;
 
 SELECT * FROM table_animalia;
