@@ -297,10 +297,21 @@ SELECT * FROM animal_collection;
 
 
 
-/* ----------------------------------------------------------------
-	Joining the animal diets and animal collection tables together:
----------------------------------------------------------------- */
-SELECT * FROM animal_diet INNER JOIN animal_collection ON animal_collection.commissary_id = animal_diet.nutrition_id;
+/* --------------------------------------------------------------------------------------
+	Joining the animal diets and animal collection tables together using explicit syntax:
+-------------------------------------------------------------------------------------- */
+SELECT * FROM animal_diet 
+INNER JOIN animal_collection 
+ON animal_collection.commissary_id = animal_diet.nutrition_id;
+
+
+/* ------------------------------------------------------------------------
+	Same result using implicit syntax (NOT considered to be good practice):
+------------------------------------------------------------------------ */
+SELECT animal_diet.*, animal_collection.* 
+FROM animal_diet, animal_collection
+WHERE animal_diet.nutrition_id = animal_collection.commissary_id
+
 
 
 
