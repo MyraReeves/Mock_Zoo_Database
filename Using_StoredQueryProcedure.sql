@@ -1,6 +1,7 @@
-USE stored_database
+USE database_zoo
+GO
 
-EXEC [dbo].[getAnimalInfo] 'jaguar - Pantanal'             
+EXEC [dbo].[getAnimalInfo] 'jaguar - Pantanal'           
 
 
 /*
