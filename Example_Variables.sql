@@ -1,4 +1,12 @@
+-- Concatenating strings:
 PRINT '"The successful warrior is the average man, ' + 'with laser-like focus." -- Bruce Lee'
+
+--ASCII code 13 can be used to indicate a hard return line break:
+PRINT 'The greatest glory in living lies not in never falling, but in rising every time we fall.' + CHAR(13) + '-- Nelson Mandela'
+
+-- ASCII code 9 can be used to indicate a tab indention:
+PRINT CHAR(9) + 'The first line of a paragraph is normally indented.'
+
 
 -- Creating a variable to store an integer:
 DECLARE @myVariable INT
@@ -14,4 +22,8 @@ SET @variable1 = 3
 SET @variable2 = 5
 
 -- To use one of these integer variables as a string, use the built-in convert function, inside of which you need to specify how many variable characters are needed:
-PRINT 'That can of kombucha costs ' + CONVERT(varchar(10), @variable1) + ' dollars.'
+PRINT 'That can of kombucha costs ' + CONVERT(varchar(5), @variable1) + ' dollars.'
+
+-- Here is an example displaying values both ways:
+PRINT 'Variable 1 = ' + CONVERT(VARCHAR(5), @variable1) + CHAR(13) + 'Variable 2 = ' + CONVERT(VARCHAR(5), @variable2) + CHAR(13) + 'Adding them to each other results in... '
+PRINT @variable1 + @variable2
