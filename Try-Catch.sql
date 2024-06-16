@@ -1,17 +1,16 @@
-/* --------------------------------------------------------
-	To display for accidental misspellings during searches:
--------------------------------------------------------- */
+/* -----------------------------------------------------------------------------------
+	To display custom error message after accidental misspellings/etc during searches:
+----------------------------------------------------------------------------------- */
 
 USE database_zoo
 GO
 
 DECLARE @animalName VARCHAR(50)
-DECLARE @errorString VARCHAR(200)
+DECLARE @errorString VARCHAR(300)
 DECLARE @results VARCHAR(5)
 
 SET @animalName = 'ja guar'
-SET @errorString = 'You searched for: ' + @animalName + CHAR(13) + 'I am sorry but I can not find that individual in the database. Please check your spelling and try again.'
-
+SET @errorString = 'ERROR' + CHAR(13) + 'You searched for: ' + @animalName + CHAR(13) + 'I am sorry but I can not find that individual in the database. Please check your spelling and try again.' + CHAR(13) + 'NOTE: Searches should follow the format of: species common name - individual''s name'  + CHAR(13) + 'Example: brown bear - Dexter'
 BEGIN TRY
 	SET @results = (SELECT COUNT(animal_collection.animal) FROM animal_collection WHERE animal = @animalName)
 	IF @results = 0
