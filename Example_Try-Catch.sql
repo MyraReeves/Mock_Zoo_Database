@@ -1,4 +1,23 @@
-/* -----------------------------------------------------------------------------------
+/* --------------------------------------------------------------
+	Example of a TRY/CATCH Block using built-in system functions:
+-------------------------------------------------------------- */
+BEGIN TRY
+SELECT 1000/0 AS Result;	-- Attempting to divide a number by zero will result in an error
+END TRY
+
+BEGIN CATCH
+SELECT
+ERROR_NUMBER() AS [Error_Code],
+ERROR_PROCEDURE() AS [Invalid_Procedure],
+ERROR_MESSAGE() AS [Error_Details];
+END CATCH
+
+
+
+
+
+/* ----------------------------------------------------------------------------------
+	Zoo database Example - 
 	To display custom error message after accidental misspellings/etc during searches:
 ----------------------------------------------------------------------------------- */
 
