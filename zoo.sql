@@ -359,3 +359,26 @@ SELECT
 	INNER JOIN animal_diet AS a4 ON a4.nutrition_id = animals.seasonal_diet_supplement
 	WHERE animal = 'jaguar - Pantanal' -- Modify this line to view the cost of a different species
 ;
+
+
+
+/* ----------------------------------------------------------------
+	Displaying SUMS of cost of habitats & diets for ALL of the zoo:
+---------------------------------------------------------------- */
+DECLARE @totalCost_Exhibits MONEY;
+DECLARE @totalCost_Diets MONEY;
+
+DECLARE @animalsCost_Sum MONEY;
+
+SET @totalCost_Exhibits = (SELECT SUM(maintenance_cost) FROM habitat);
+SET @totalCost_Diets = (SELECT SUM(cost) FROM animal_diet);
+SET @animalsCost_Sum = (@totalCost_Exhibits + @totalCost_Diets);
+
+PRINT (
+																-- Convert the monetary sums into a string to be displayed
+	'Montly maintenance cost of all exhibits:' + CHAR(9) + '$ ' + CONVERT(VARCHAR(20), @totalCost_Exhibits) + CHAR(13) +
+	'Monthly total animal food ordering cost:' + CHAR(9) + '$ ' + CONVERT(VARCHAR(20), @totalCost_Diets) + CHAR(13) +
+	'________________________________________________________________' + CHAR(13) +
+	'Total monthly budget for housing & feeding our animal collection:' + CHAR(13) +
+	'$ ' + CONVERT(VARCHAR(50), @animalsCost_Sum)
+)
