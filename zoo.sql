@@ -177,6 +177,13 @@ INSERT INTO animal_diet
 
 SELECT * FROM animal_diet;
 
+/* ---------------------------------------------------------------
+	To show the cost of the highest priced food item in the table:
+--------------------------------------------------------------- */
+SELECT MAX(cost) AS 'Highest cost' FROM animal_diet;
+-- Note that this will return an integer value
+
+
 
 
 
@@ -234,6 +241,15 @@ SELECT * FROM habitat;
 ------------------------------------------------- */
 INSERT INTO habitat (habitat_type, maintenance_cost)
 VALUES ('tropical forest building', 100000);
+
+
+/* -------------------------------------------------------------------
+	To show the cost of the lowest priced habitat to maintain monthly:
+------------------------------------------------------------------- */
+SELECT MIN(maintenance_cost) AS 'Lowest Cost'
+FROM habitat;
+
+
 
 
 
